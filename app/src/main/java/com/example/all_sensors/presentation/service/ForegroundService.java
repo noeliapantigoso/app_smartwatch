@@ -93,7 +93,11 @@ public class ForegroundService extends Service {
                 .setContentText("Recolección continua y eventos on-demand")
                 .setSmallIcon(R.drawable.ic_launcher_foreground)  // icono en mipmap o drawable
                 .build();
-        startForeground(NOTIF_ID, notif);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            startForeground(NOTIF_ID, notif, android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_HEALTH);
+        } else {
+            startForeground(NOTIF_ID, notif);
+        }
 
         // **5) Adquiere el WakeLock** para que el CPU siga despierto con pantalla apagada
         if (wakeLock != null && !wakeLock.isHeld()) {

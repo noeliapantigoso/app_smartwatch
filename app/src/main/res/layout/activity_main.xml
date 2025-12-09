@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Valores de acelerómetro -->
+    <TextView
+        android:id="@+id/txtAcc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ACC: x=0.00  y=0.00  z=0.00"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Frecuencia cardíaca -->
+    <TextView
+        android:id="@+id/txtHr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HR: -- bpm"
+        android:textSize="16sp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Botón para iniciar/detener el Service -->
+    <Button
+        android:id="@+id/btnStartService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Iniciar Service"/>
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onSaveCsvClicked"
+        android:text="Guardar datos a CSV"/>
+
+</LinearLayout>

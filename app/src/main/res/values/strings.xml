@@ -1,8 +1,31 @@
 <resources>
-    <string name="app_name">All_sensors</string>
-    <!--
-    This string is used for square devices and overridden by hello_world in
-    values-round/strings.xml for round devices.
-    -->
-    <string name="hello_world">From the Square world,\nHello, %1$s!</string>
+    <string name="app_name">SmartWatch Sensors</string>
+
+    <!-- Botones UI -->
+    <string name="btn_start_service">Iniciar captura</string>
+    <string name="btn_stop_service">Detener captura</string>
+    <string name="btn_save_csv">Guardar datos a CSV</string>
+
+    <!-- Labels por defecto -->
+    <string name="lbl_acc_default">ACC: x=0.00  y=0.00  z=0.00</string>
+    <string name="lbl_hr_default">HR: -- bpm</string>
+    <string name="lbl_ppg_default">PPG: G=--  IR=--  R=--</string>
+    <string name="lbl_spo2_default">SpO2: -- %</string>
+    <string name="lbl_skin_temp_default">Temp: --.- °C</string>
+
+    <!-- Mensajes de permisos -->
+    <string name="msg_permissions_required">Se requieren permisos de sensores</string>
+    <string name="msg_permissions_denied">Sin permisos no se pueden recolectar sensores</string>
+
+    <!-- Mensajes del servicio -->
+    <string name="msg_service_not_active">Servicio no está activo</string>
+    <string name="msg_connection_failed">No se pudo conectar con Samsung Health Tracking</string>
+    <string name="msg_csv_saved">CSV grabado: %1$s</string>
+    <string name="msg_csv_error">Error exportando CSV</string>
+
+    <!-- Notificación foreground -->
+    <string name="notif_channel_name">Sensores en primer plano</string>
+    <string name="notif_channel_desc">Recolección continua de sensores y on-demand</string>
+    <string name="notif_title">Sensores activos</string>
+    <string name="notif_text">Recolección continua y on-demand</string>
 </resources>

@@ -1,21 +1,28 @@
-# Add project specific ProGuard rules here.
-# You can control the set of applied configuration files using the
-# proguardFiles setting in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
+# Conservar números de línea en stack traces de producción
+-keepattributes SourceFile,LineNumberTable
+-renamesourcefileattribute SourceFile
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
+# ── Samsung Health Tracking SDK ──────────────────────────────────────────────
+# Toda la API pública del SDK se carga por reflexión en tiempo de ejecución;
+# sin estas reglas, R8 la elimina y el servicio falla al conectar.
+-keep class com.samsung.android.service.health.tracking.** { *; }
+-keep interface com.samsung.android.service.health.tracking.** { *; }
+-dontwarn com.samsung.android.service.health.tracking.**
 
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
+# ── Google Play Services Wearable ────────────────────────────────────────────
+-keep class com.google.android.gms.wearable.** { *; }
+-dontwarn com.google.android.gms.wearable.**
 
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
+# ── Mantener listeners del SDK (callbacks invocados por reflexión) ────────────
+-keep class * implements com.samsung.android.service.health.tracking.HealthTracker$TrackerEventListener { *; }
+-keep class * implements com.samsung.android.service.health.tracking.ConnectionListener { *; }
+
+# ── ForegroundService y Binder (sistema lo resuelve por nombre) ───────────────
+-keep class com.signals.smartwatch.** extends android.app.Service { *; }
+-keep class com.signals.smartwatch.** extends android.os.Binder { *; }
+
+# ── Room ──────────────────────────────────────────────────────────────────────
+-keep class * extends androidx.room.RoomDatabase { *; }
+-keep @androidx.room.Entity class * { *; }
+-keep @androidx.room.Dao interface * { *; }
+-dontwarn androidx.room.**

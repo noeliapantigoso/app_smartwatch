@@ -1,31 +1,30 @@
 [versions]
 agp = "8.10.0"
 kotlin = "2.0.21"
-playServicesWearable = "19.0.0"
-composeBom = "2024.09.00"
-composeMaterial = "1.2.1"
-composeFoundation = "1.2.1"
-wearToolingPreview = "1.0.0"
-activityCompose = "1.10.1"
-coreSplashscreen = "1.0.1"
+ksp = "2.0.21-1.0.28"
+coroutines = "1.8.1"
+room = "2.6.1"
+androidx-core = "1.13.1"
 
 [libraries]
-play-services-wearable = { group = "com.google.android.gms", name = "play-services-wearable", version.ref = "playServicesWearable" }
-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
-ui = { group = "androidx.compose.ui", name = "ui" }
-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
-compose-material = { group = "androidx.wear.compose", name = "compose-material", version.ref = "composeMaterial" }
-compose-foundation = { group = "androidx.wear.compose", name = "compose-foundation", version.ref = "composeFoundation" }
-wear-tooling-preview = { group = "androidx.wear", name = "wear-tooling-preview", version.ref = "wearToolingPreview" }
-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "coreSplashscreen" }
+# AndroidX Core
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidx-core" }
+
+# Coroutines
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+
+# Room
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room-ktx     = { group = "androidx.room", name = "room-ktx",     version.ref = "room" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+
+# AndroidX Test
+test-core   = { group = "androidx.test",     name = "core",         version = "1.6.1" }
+test-runner = { group = "androidx.test",     name = "runner",       version = "1.6.2" }
+test-rules  = { group = "androidx.test",     name = "rules",        version = "1.6.1" }
+test-junit  = { group = "androidx.test.ext", name = "junit",        version = "1.2.1" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-
+kotlin-android      = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+ksp                 = { id = "com.google.devtools.ksp", version.ref = "ksp" }
